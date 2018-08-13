@@ -8,11 +8,11 @@ gulp.task('project:watch', function () {
 	watch('./dev/js/*.js', function(event) {
 		return gulp.src('./dev/js/*.js')
 		.pipe(
-			gulp.dest('prod/js')
+			gulp.dest('prod/assets/js')
 		)
 	})
 	watch('./dev/html/*.html', function(event) {
-		return gulp.src('./dev/html/*.html')
+		return gulp.src('./dev/html/**/*.html')
 		.pipe(
 			nunjucks.compile()
 		)
@@ -34,7 +34,7 @@ gulp.task('project:watch', function () {
 			autoprefixer()
 		)
 		.pipe(
-			gulp.dest('prod/css')
+			gulp.dest('prod/assets/css')
 		)
 	})
 })
