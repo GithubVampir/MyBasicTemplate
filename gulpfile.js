@@ -3,25 +3,26 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	plumber = require('gulp-plumber'),
-	watch = require('gulp-watch')
+	watch = require('gulp-watch'),
+	project = 'Site'
 gulp.task('project:watch', function () {
-	watch('./dev/js/*.js', function(event) {
-		return gulp.src('./dev/js/*.js')
+	watch('./dev/' + project + '/js/*.js', function(event) {
+		return gulp.src('./dev/' + project + '/js/*.js')
 		.pipe(
-			gulp.dest('prod/assets/js')
+			gulp.dest('prod/' + project + '/assets/js')
 		)
 	})
-	watch('./dev/html/*.html', function(event) {
-		return gulp.src('./dev/html/**/*.html')
+	watch('./dev/' + project + '/html/*.html', function(event) {
+		return gulp.src('./dev/' + project + '/html/**/*.html')
 		.pipe(
 			nunjucks.compile()
 		)
 		.pipe(
-			gulp.dest('prod')
+			gulp.dest('prod/' + project)
 		)
 	})
-	watch('./dev/sass/*.scss', function(event) {
-		return gulp.src('./dev/sass/*.scss')
+	watch('./dev/' + project + '/sass/*.scss', function(event) {
+		return gulp.src('./dev/' + project + '/sass/*.scss')
 		.pipe(
 			plumber(function(error) {
 				this.emit('end')
@@ -34,7 +35,7 @@ gulp.task('project:watch', function () {
 			autoprefixer()
 		)
 		.pipe(
-			gulp.dest('prod/assets/css')
+			gulp.dest('prod/' + project + '/assets/css')
 		)
 	})
 })

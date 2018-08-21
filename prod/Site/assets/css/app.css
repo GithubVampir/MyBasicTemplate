@@ -1,0 +1,23 @@
+body {
+  min-width: 1200px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #000; }
+
+* {
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+a {
+  text-decoration: none;
+  color: #226db8; }
+  a:hover {
+    color: #226db8; }
+
+.noscript {
+  display: block; }
+
+.application {
+  display: none; }
